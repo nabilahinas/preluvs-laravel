@@ -1,4 +1,4 @@
-@extends('layouts\main')
+@extends('layouts.main')
 
 @section('container')
 
@@ -21,7 +21,7 @@
                         <p>{{ auth()->user()->username }}</p>
                     </div>
                 </div>
-                
+
             </div>
             <div class="row mt-3">
                 <div class=" card card2 p-5">

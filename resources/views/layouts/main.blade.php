@@ -31,16 +31,16 @@
 <body>
 
   @auth
-  @include('partials\navbar-after-login')
+  @include('partials.navbar-after-login')
   @else
-  @include('partials\navbar-before-login')
+  @include('partials.navbar-before-login')
   @endauth
 
   <div class="container-fluid">
     @yield('container')
   </div>
 
-  @include('partials\footer')
+  @include('partials.footer')
 
 
   <!-- Option 1: Bootstrap Bundle with Popper -->

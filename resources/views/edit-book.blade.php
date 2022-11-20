@@ -1,4 +1,4 @@
-@extends('layouts\main')
+@extends('layouts.main')
 
 @section('container')
 
@@ -135,10 +135,10 @@
                                     <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
                                     @endif
                                 @endforeach
-                        
+
                             </select>
                         </div>
-                        
+
                         <div class="mt-5 text-right">
                             <input type="submit" class="btn btn-prim profile-button" value="Save changes" />
                         </div>
