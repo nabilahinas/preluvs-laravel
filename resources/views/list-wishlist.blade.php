@@ -1,4 +1,4 @@
-@extends('layouts\main')
+@extends('layouts.main')
 
 @section('container')
 
@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-center align-items-center mb-3 section-margin">
         <h2 class="text-center fw-bolder">{{ auth()->user()->user_name }} 's Wishlist</h2>
     </div>
-    
+
     <div id="products" class="container d-flex justify-content-between">
         <div class="row row-cols-2 row-cols-lg-4 row-cols-sm-1 w-100">
             @if ($itemwishlist->count())

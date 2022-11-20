@@ -1,4 +1,4 @@
-@extends('layouts\main')
+@extends('layouts.main')
 
 @section('container')
 
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                 </a>
-        
+
             </div>
             @endforeach
             <!-- <div class="col-lg-6 col-md-12 mb-sm-5 click-genre">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </a>
-        
+
             </div>
             <div class="col-lg-6 col-md-12 mb-sm-5 click-genre">
                 <a href="#">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </a>
-        
+
             </div>
             <div class="col-lg-6 col-md-12 mb-sm-5 click-genre">
                 <a href="#">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </a>
-        
+
             </div>
             <div class="col-lg-6 col-md-12 mb-sm-5 click-genre">
                 <a href="#">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </a>
-        
+
             </div>
             <div class="col-lg-6 col-md-12 mb-sm-5 click-genre">
                 <a href="#">
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </a>
-        
+
             </div> -->
         </div>
     </div>
