@@ -51,16 +51,15 @@ class CartController extends Controller
     {
 
         $inputancart = [
-            "book_id" => $book->book_id,
+            "book_id" => $book->id,
             "user_id" => auth()->user()->id, 
         ];
-
+        
         $itemuser = auth()->user()->id;
         //$itemproduk = Book::findOrFail($book->book_id);
         // cek dulu apakah sudah ada shopping cart untuk user yang sedang login
-        $cart = Cart::where('book_id', $book->book_id)
+        $cart = Cart::where('book_id', $book->id)
                     ->where('user_id', $itemuser)
-                    ->where('status_cart', 'cart')
                     ->first();
 
         if ($cart) {
@@ -68,9 +67,11 @@ class CartController extends Controller
         } else {
             //nyari jumlah cart berdasarkan user yang sedang login untuk dibuat no invoice
             
-            $inputancart['status_cart'] = 'cart';
-            $inputancart['status_pembayaran'] = 'belum';
-            $inputancart['status_pengiriman'] = 'belum';
+            $qty_book = $book->book_quantity;
+            $total_price = $qty_book * $book->book_price;
+
+            $inputancart['qty'] = $qty_book;
+            $inputancart['total_price'] = $total_price;
 
             // dd($inputancart);
             

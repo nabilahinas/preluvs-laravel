@@ -14,15 +14,12 @@ class CreateCartsTable extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->increments('cart_id');
-            $table->integer('book_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->integer('book_quantity');
-            $table->double('total', 12, 2)->default(0);
+            $table->id('id');
+            $table->foreignId('book_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->integer('qty');
+            $table->double('total_price', 12, 2)->default(0);
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('book_id')->references('book_id')->on('books');
-            
             $table->timestamps();
         });
     }

@@ -94,7 +94,7 @@ Route::get('/genres/{category:category_slug}', function(Category $category){
 });
 
 // book detail
-Route::get('/books/{book:book_id}', [BookController::class, 'detailBook']);
+Route::get('/books/{book:id}', [BookController::class, 'detailBook']);
 
 //Receipt
 Route::get('/enter-receipt', function () {
@@ -117,12 +117,12 @@ Route::get('/notification', function () {
 })->middleware('auth');
 
 //Cart
-Route::post('/cart/{book:book_id}','\App\Http\Controllers\CartController@store')->middleware('auth');
-Route::get('/cart','\App\Http\Controllers\CartController@index')->middleware('auth');
+Route::post('/cart/{book:id}','CartController@store')->middleware('auth');
+Route::get('/cart','CartController@index')->middleware('auth');
 
 // wishlist
 Route::get('/wishlist', 'WishlistController@index')->middleware('auth');
-Route::post('/wishlist/{book:book_id}', 'WishlistController@store')->middleware('auth');
+Route::post('/wishlist/{book:id}', 'WishlistController@store')->middleware('auth');
 // Route::get('/wishlist', '\App\Http\Controllers\WishlistController@index')->middleware('auth');
 // Route::post('/wishlist/{book:book_id}', '\App\Http\Controllers\WishlistController@store')->middleware('auth');
 

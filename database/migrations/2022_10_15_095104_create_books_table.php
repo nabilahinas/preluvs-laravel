@@ -14,7 +14,7 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id('book_id');
+            $table->id('id');
             $table->string('book_title');
             $table->string('slug')->nullable();
             $table->string('book_pict')->nullable();
@@ -29,10 +29,10 @@ class CreateBooksTable extends Migration
             $table->string('book_isbn')->nullable();
             // $table->foreign('buyer_id')->references('id')->on('users');
 
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->constrained();
             // $table->foreign('category_id')->references('category_id')->on('categories');
 
-            $table->foreignId('seller_id');
+            $table->foreignId('user_id')->constrained();
             //$table->unsignedBigInteger('seller_id');
             // $table->foreign('seller_id')->references('id')->on('users');
             

@@ -10,10 +10,10 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = [
-        'category_id'
+        'id'
     ];
 
-    protected $primaryKey = 'category_id';
+    protected $primaryKey = 'id';
 
     public function books(){
         return $this->hasMany(Book::class, 'category_id');

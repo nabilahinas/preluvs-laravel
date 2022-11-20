@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Checkout;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
     public function index(){
+        
+        $purchase = Checkout::whereId('user_id', auth()->user()->id)->get();
+        // dd($purchase);
         return view('profile',[
             "title" => "Profile",
             "active" => 'profile',
             "css" => 'css/profile.css',
             "js" => '',
-            "selling" => Book::where('seller_id', auth()->user()->id)->get(),
-            "purchase" => Book::where('buyer_id', auth()->user()->id)->get(),
+            "selling" => Book::where('user_id', auth()->user()->id)->get(),
+            "purchase" => $purchase
         ]);
     }
 

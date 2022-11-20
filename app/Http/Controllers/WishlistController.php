@@ -83,10 +83,10 @@ class WishlistController extends Controller
 
         $wldata = [
             "user_id" => auth()->user()->id, 
-            "book_id" => $book->book_id
+            "book_id" => $book->id
         ];
 
-        $validasiwishlist = Wishlist::where('book_id', $book->book_id)
+        $validasiwishlist = Wishlist::where('book_id', $book->id)
                                     ->where('user_id', auth()->user()->id)
                                     ->first();
         if ($validasiwishlist) {

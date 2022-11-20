@@ -36,7 +36,7 @@
                     <div class="img-wrapper">
                         <img src="/{{ $book->book_pict }}" alt="" class="img-container rounded-4">
                     </div>
-                    <a href="/books/{{ $book->book_id }}""><h4 class=" title mt-3">{{ $book->book_title }}</h4></a>
+                    <a href="/books/{{ $book->id }}""><h4 class=" title mt-3">{{ $book->book_title }}</h4></a>
                     <p class="author">{{ $book->book_author }}</p>
                     <div>
                         <a href="/genres/{{ $book->category->category_slug }}" class="badge">{{
@@ -46,7 +46,7 @@
                         <h5 class="price fw-semibold m-0">
                             Rp{{ $book->book_price }}
                         </h5>
-                        <form action="/cart/{{ $book->book_id }}" method="post">
+                        <form action="/cart/{{ $book->id }}" method="post">
                             @csrf
                             <button type="submit" href="" class="btn-cart rounded text-center"><i
                                     class='bx bx-cart-alt'></i></button>
@@ -56,7 +56,7 @@
             </div>
             @endforeach
             @else
-            <div class="col text-center">
+            <div class="col text-center w-100">
                 <div class="alert alert-secondary text-center" role="alert">Nothing here...</div>
             </div>
             @endif

@@ -11,10 +11,8 @@ class Wishlist extends Model
 
     protected $table = "wishlists";
 
-    protected $primaryKey = 'wishlist_id';
-
     protected $guarded = [
-        'wishlist_id'
+        'id'
     ];
 
     public function user(){
@@ -24,5 +22,6 @@ class Wishlist extends Model
     public function book(){
         return $this->belongsTo(Book::class, 'book_id');
     }
+    
      
 }

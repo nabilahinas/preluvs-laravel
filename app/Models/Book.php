@@ -10,12 +10,10 @@ class Book extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $primaryKey = 'book_id';
-
     protected $table = "books";
 
     protected $guarded = [
-        'book_id'
+        'id'
     ];
 
     public function sluggable(): array
@@ -28,16 +26,16 @@ class Book extends Model
     }
 
     public function seller(){
-        return $this->belongsTo(User::class, 'seller_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function category(){
         return $this->belongsTo(Category::class, 'category_id');
     } 
 
-    public function buyer(){
-        return $this->belongsTo(User::class, 'buyer_id');
-    }
+    // public function buyer(){
+    //     return $this->belongsTo(User::class, 'buyer_id');
+    // }
 
     // public function wishlist(){
     //     return $this->belongsToMany(User::class, 'wishlists', 'book_id', 'id');

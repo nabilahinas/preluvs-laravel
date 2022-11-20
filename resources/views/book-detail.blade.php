@@ -76,16 +76,16 @@
             </div>
         </div>
         <div class="buttons col-lg-3 d-flex flex-column align-items-center">
-            <form action="/cart/{{ $book->book_id }}" method="post" class="w-100">
+            <form action="/cart/{{ $book->id }}" method="post" class="w-100">
                 @csrf
-                <input type="number" value="{{ $book->book_id }}" name="bookId" class="d-none">
+                <input type="number" value="{{ $book->id }}" name="bookId" class="d-none">
                 <button class="nav-link btn-prim me-lg-3 d-flex align-items-center justify-content-center w-100 border-0">
                     <i class='bx bx-cart-alt me-3'></i> Add to cart
                 </button>
             </form>
-            <form action="/wishlist/{{ $book->book_id }}" method="post" class="w-100">
+            <form action="/wishlist/{{ $book->id }}" method="post" class="w-100">
                 @csrf
-                <input type="number" value="{{ $book->book_id}}" name="bookId" class="d-none">
+                <input type="number" value="{{ $book->id}}" name="bookId" class="d-none">
                 <button type="submit"
                     class="nav-link btn-second me-lg-3 mt-3 d-flex align-items-center justify-content-center w-100">
                     <i class='bx bx-bookmark me-3'></i> Add to wishlist

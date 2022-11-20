@@ -86,7 +86,7 @@ class BookController extends Controller
             $validatedData['book_pict'] = $request->file('book_pict')->store('book-pics');
         }
 
-        $validatedData['seller_id'] = auth()->user()->id;
+        $validatedData['user_id'] = auth()->user()->id;
 
         Book::create($validatedData);
 
@@ -164,9 +164,9 @@ class BookController extends Controller
             $validatedData['book_pict'] = $request->file('book_pict')->store('book-pics');
         }
 
-        $validatedData['seller_id'] = auth()->user()->id;
+        $validatedData['user_id'] = auth()->user()->id;
 
-        Book::where('book_id', $book->book_id)
+        Book::where('id', $book->id)
                 ->update($validatedData);
         
         return redirect('/profile')->with('success', 'Book has been updated!');
@@ -180,7 +180,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        Book::destroy($book->book_id);
+        Book::destroy($book->id);
 
         return redirect('/profile')->with('success', 'Book has been deleted!');
     }
@@ -190,17 +190,17 @@ class BookController extends Controller
         return response()->json(['slug' => $slug]);
     }
 
-    public function storeWishlist(Request $request, Book $book){
+    // public function storeWishlist(Request $request, Book $book){
 
-        dd($book->book_id);
+    //     //dd($book->id);
 
-        $wldata = [
-            "user_id" => auth()->user()->id, 
-            "book_id" => $book->book_id
-        ];
+    //     $wldata = [
+    //         "user_id" => auth()->user()->id, 
+    //         "book_id" => $book->book_id
+    //     ];
 
-        Wishlist::create($wldata);
+    //     Wishlist::create($wldata);
 
-        return redirect('/profile')->with('success', 'wishlist saved!');
-    }
+    //     return redirect('/profile')->with('success', 'wishlist saved!');
+    // }
 }
